@@ -5,6 +5,7 @@
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.springframework.org/schema/beans">
 
+<aop:aspectj-autoproxy/>
 
 <bean name = "triangle" class="org.julia.bdgolka.model.Triangle">
 <property name="name" value="Triangle name"/>
@@ -15,5 +16,7 @@
 </bean>
 
 <bean name = "shapeService" class="org.julia.bdgolka.service.ShapeService" autowire="byName"/>
+
+<bean name="loginAspect" class="org.julia.bdgolka.aspect.LogginAspect"/>
 </beans>
 	
