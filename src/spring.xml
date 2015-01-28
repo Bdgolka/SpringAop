@@ -12,7 +12,7 @@
 </bean>
 
 <bean name = "circle" class="org.julia.bdgolka.model.Circle">
-<property name="name" value="Circle name"/>
+
 </bean>
 
 <bean name = "shapeService" class="org.julia.bdgolka.service.ShapeService" autowire="byName"/>
