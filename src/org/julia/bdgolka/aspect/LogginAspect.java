@@ -29,7 +29,7 @@ public class LogginAspect {
 		System.out.println("An exception has been thrown "+ ex);
 	}
 	
-	@Around("allGetters()")
+	@Around("@annotation(org.julia.bdgolka.aspect.Loggable)")
 	public Object myAroundAdvice(ProceedingJoinPoint proceedingJoinPoint){
 		Object returnValue = null;
 			try {
@@ -47,7 +47,7 @@ public class LogginAspect {
 	@Pointcut("execution(* get*())")
 	public void allGetters() {
 	}
-
+	
 	@Pointcut("within(org.julia.bdgolka.model.Circle)")
 	public void allCircleMethods() {
 	}

@@ -1,5 +1,6 @@
 package org.julia.bdgolka.service;
 
+import org.julia.bdgolka.aspect.Loggable;
 import org.julia.bdgolka.model.Circle;
 import org.julia.bdgolka.model.Triangle;
 
@@ -10,6 +11,7 @@ public class ShapeService {
 	private Circle circle;
 	private Triangle triangle;
 
+	@Loggable
 	public Circle getCircle() {
 		return circle;
 	}
