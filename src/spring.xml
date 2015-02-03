@@ -5,18 +5,28 @@
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.springframework.org/schema/beans">
 
-<aop:aspectj-autoproxy/>
+	<aop:aspectj-autoproxy />
 
-<bean name = "triangle" class="org.julia.bdgolka.model.Triangle">
-<property name="name" value="Triangle name"/>
-</bean>
+	<bean name="triangle" class="org.julia.bdgolka.model.Triangle">
+		<property name="name" value="Triangle name" />
+	</bean>
 
-<bean name = "circle" class="org.julia.bdgolka.model.Circle">
+	<bean name="circle" class="org.julia.bdgolka.model.Circle">
 
-</bean>
+	</bean>
 
-<bean name = "shapeService" class="org.julia.bdgolka.service.ShapeService" autowire="byName"/>
+	<bean name="shapeService" class="org.julia.bdgolka.service.ShapeService"
+		autowire="byName" />
 
-<bean name="loginAspect" class="org.julia.bdgolka.aspect.LogginAspect"/>
+	<bean name="loginAspect" class="org.julia.bdgolka.aspect.LogginAspect" />
+
+	<aop:config>
+		<aop:aspect id="LoggingAspect" ref="loginAspect">
+			<aop:pointcut expression="execution(* get*())" id="allGetters" />
+			<aop:around pointcut-ref="allGetters" method="myAroundAdvice" />
+		</aop:aspect>
+
+	</aop:config>
+
 </beans>
 	
