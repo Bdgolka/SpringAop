@@ -19,5 +19,9 @@ public class LogginAspect {
 		System.out.println("After Finally");
 		return returnValue;
 	}
+	
+	public void logginAdvice()	{
+		System.out.println("Logging from the advice");
+	}
 
 }
